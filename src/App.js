@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Counter from './components/counter/counter';
 
 function App() {
+
+  const [display, setDisplay] = useState(true);
+
+  const handleToggleDisplay = () => {
+    setDisplay(d => !d);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Demo 06 - Le cycle de vie</h1>
+
+      <button onClick={handleToggleDisplay}>Jour/Nuit</button>
+      {display &&(
+        <Counter />
+      )}
+
     </div>
   );
 }
